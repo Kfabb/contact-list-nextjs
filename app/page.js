@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>Contact List</h1>
+        <h1 className="text-center">Contact List</h1>
         <a className="text-center" href="/new">
           <button className="btn-secondary btn">Add New Contact</button>
         </a>

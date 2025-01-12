@@ -2,25 +2,22 @@ export const ContactsAPI = {
   contacts: [
     {
       picture:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anne_Hathaway-68211_%28cropped_2%29.jpg/440px-Anne_Hathaway-68211_%28cropped_2%29.jpg",
-      firstName: "Anne",
-      lastName: "Hathaway",
+        "https://media.vogue.co.uk/photos/636d2aad41d61cb9a3386992/2:3/w_1920,c_limit/GettyImages-1243944955.jpg",
+      name: "Anne Hathaway",
       number: "123-4567",
       email: "anne@anne.com",
     },
     {
       picture:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg/440px-Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg",
-      firstName: "Ryan",
-      lastName: "Reynolds",
+        "https://hollywoodreporter.com/wp-content/uploads/2024/12/35fea_producer-MAIN-003_GA_210518_295-1-SPLASH-2024.jpg?w=2000&h=1126&crop=1&resize=1000%2C563",
+      name: "Ryan Reynolds",
       number: "234-5678",
       email: "ryanlovesblake@ryan.com",
     },
     {
       picture:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Elle_Fanning-1733_%28cropped%29.jpg/440px-Elle_Fanning-1733_%28cropped%29.jpg",
-      firstName: "Elle",
-      lastName: "Fanning",
+        "https://resizing.flixster.com/ninRvoG8jGaRZF-2adtzCmfucns=/218x280/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/313474_v9_bb.jpg",
+      name: "Elle Fanning",
       number: "345-6789",
       email: "elle@elle.com",
     },
@@ -29,10 +26,10 @@ export const ContactsAPI = {
     return this.contacts;
   },
   get: function (id) {
-    const isContact = (c) => c.lastName === id;
+    const isContact = (c) => c.number === id;
     return this.contacts.find(isContact);
   },
-  addContact: function ({ picture, firstName, lastName, number, email }) {
-    this.contacts.push({ picture, firstName, lastName, number, email });
+  addContact: function ({ picture, name, number, email }) {
+    this.contacts.push({ picture, name, number, email });
   },
 };
