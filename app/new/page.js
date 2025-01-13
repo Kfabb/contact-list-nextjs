@@ -1,13 +1,13 @@
 "use client";
-import { ContactsAPI } from "../../../app/data/contactsAPI";
+import { ContactsAPI } from "../data/contactAPI";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import PropTypes from 'prop-types';
 import Link from "next/link";
 
-export default function AddContact() {
+function AddContact() {
   const [picture, setPicture] = useState(null);
-  const [firstName, setFirstName] = useState(null);
-  const [lastName, setLastName] = useState(null);
+  const [name, setName] = useState(null);
   const [number, setNumber] = useState(null);
   const [email, setEmail] = useState(null);
   const router = useRouter();
@@ -15,57 +15,70 @@ export default function AddContact() {
   const handleAddNewContactClick = () => {
     ContactsAPI.addContact({
       picture,
-      firstName,
-      lastName,
+      name,
       number,
       email,
     });
-    RouteMatcher.push("/");
+    router.push('/')
   };
 
   return (
-    <div>
-      <form>
-        <label>Picture URL</label>
-        <input
-          type="email"
-          className="form-control"
-          onChange={(event) => setEmail(event.target.value)}
-        />
+    <div className="row">
+      <h1 className="text-center text-secondary">Add New Contact</h1>
+      <div className="col"></div>
+      <div className="col justify-content-center">
+        <form>
+          <label>Picture URL</label>
+          <input
+            type="email"
+            className="form-control"
+            onChange={(event) => setPicture(event.target.value)}
+            placeholder="Contact Profile Pic URL"
+          />
+          <label>Name</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(event) => setName(event.target.value)}
+            placeholder="Johnny Appleseed"
+          />
 
-        <label>First Name</label>
-        <input
-          type="text"
-          className="form-control"
-          onChange={(event) => setFirstName(event.target.value)}
-        />
+          <label>Phone Number</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(event) => setNumber(event.target.value)}
+            placeholder=""
+          />
 
-        <label>Last Name</label>
-        <input
-          type="text"
-          className="form-control"
-          onChange={(event) => setLastName(event.target.value)}
-        />
-
-        <label>Phone Number</label>
-        <input
-          type="text"
-          className="form-control"
-          onChange={(event) => setNumber(event.target.value)}
-        />
-
-        <label>Email Address</label>
-        <input
-          type="text"
-          className="form-control"
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <button type="button" onClick={handleAddNewContactClick}>
-          Enter Contact
-        </button>
-      </form>
-
-      <Link href="/"></Link>
+          <label>Email Address</label>
+          <input
+            type="text"
+            className="form-control"
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="johnny@appleseed.com"
+          />
+          <button
+            className="mt-3 rounded btn-secondary float-left"
+            type="button"
+            onClick={handleAddNewContactClick}>
+            Enter Contact
+          </button>
+          <Link className="mt-3 float-right badge badge-secondary" href="/">
+            Cancel
+          </Link>
+        </form>
+      </div>
+      <div className="col"></div>
     </div>
   );
 }
+
+AddContact.proptypes = {
+  picture: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired
+}
+
+export default AddContact

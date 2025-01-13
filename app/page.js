@@ -7,7 +7,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className="text-center">Contact List</h1>
         <a className="text-center" href="/new">
-          <button className="btn-secondary btn">Add New Contact</button>
+          <button className="btn-secondary btn" onClick="/new">Add New Contact</button>
         </a>
         <div className="row">
           <input

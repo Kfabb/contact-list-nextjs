@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { ContactsAPI } from "../data/contactAPI";
 
-export default function Contact() {
-  const { id } = useParams();
-  const contact = ContactsAPI.get(parseInt(id, 10));
+export default function Contact( {params}) {
+  const { key } = useParams();
+  const contact = ContactsAPI.get(parseInt(key, 10));
 
   if (!contact) {
     return <div>Sorry, but the contact was not found</div>;
@@ -25,3 +25,4 @@ export default function Contact() {
     </main>
   );
 }
+
