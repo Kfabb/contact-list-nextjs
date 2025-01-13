@@ -48,7 +48,7 @@ function AddContact() {
             type="text"
             className="form-control"
             onChange={(event) => setNumber(event.target.value)}
-            placeholder=""
+            placeholder="11231231234"
           />
 
           <label>Email Address</label>

@@ -28,7 +28,7 @@ export default function Contacts(){
                 alt="profile pic"></img>
             </td>
             <td>
-              <Link href={c.number}>{c.name}</Link>
+              <Link href={`/${c.number}`}>{c.name}</Link>
             </td>
             <td>
               {c.number}
